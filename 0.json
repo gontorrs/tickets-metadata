@@ -1,5 +1,5 @@
 {
   "name":"General ticket",
   "description":"General admision ticket for the event",
-  "image":"https://github.com/Guichp/tickets-metadata/blob/main/img/general.jpeg?raw=true"
+  "image":"https://raw.githubusercontent.com/Guichp/tickets-metadata/refs/heads/main/img/general.jpeg"
 }
