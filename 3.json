@@ -1,5 +1,5 @@
 {
   "name":"Backstage ticket",
   "description":"Backstage access for the event",
-  "image":"https://github.com/Guichp/tickets-metadata/blob/main/img/backstage.jpeg?raw=true"
+  "image":"https://raw.githubusercontent.com/Guichp/tickets-metadata/refs/heads/main/img/backstage.jpeg"
 }
