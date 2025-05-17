@@ -1,3 +1,2 @@
 [build]
 dockerfile = "frontend/docker/Dockerfile"
-context = "frontend"
