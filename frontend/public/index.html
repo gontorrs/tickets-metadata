@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Comprar NFT Tickets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./img/ethereum.png" type="image/png">
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white font-sans min-h-screen flex flex-col py-10">
+  <main class="flex-grow flex items-center justify-center">
+    <div class="max-w-4xl w-full bg-gray-800 rounded-2xl shadow-xl p-8">
+      <h1 class="text-3xl font-bold mb-6 text-center">🎟 Comprar Entradas NFT</h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Tarjetas por tipo de entrada -->
+        <div class="bg-gray-700 p-4 rounded-xl">
+          <img src="https://raw.githubusercontent.com/Guichp/tickets-metadata/refs/heads/main/img/general.jpeg"
+            alt="General" class="w-full rounded mb-2">
+          <h2 class="text-xl font-semibold">General</h2>
+          <p class="text-sm mb-2">0.01 ETH</p>
+          <button onclick="buyTicket(0, 0.01)"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Comprar</button>
+        </div>
+
+        <div class="bg-gray-700 p-4 rounded-xl">
+          <img src="https://raw.githubusercontent.com/Guichp/tickets-metadata/refs/heads/main/img/vip.jpeg" alt="VIP"
+            class="w-full rounded mb-2">
+          <h2 class="text-xl font-semibold">VIP</h2>
+          <p class="text-sm mb-2">0.03 ETH</p>
+          <button onclick="buyTicket(1, 0.03)"
+            class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded">Comprar</button>
+        </div>
+
+        <div class="bg-gray-700 p-4 rounded-xl">
+          <img src="https://raw.githubusercontent.com/Guichp/tickets-metadata/refs/heads/main/img/premium.jpeg"
+            alt="Premium" class="w-full rounded mb-2">
+          <h2 class="text-xl font-semibold">Premium</h2>
+          <p class="text-sm mb-2">0.05 ETH</p>
+          <button onclick="buyTicket(2, 0.05)"
+            class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded">Comprar</button>
+        </div>
+
+        <div class="bg-gray-700 p-4 rounded-xl">
+          <img src="https://raw.githubusercontent.com/Guichp/tickets-metadata/refs/heads/main/img/backstage.jpeg"
+            alt="Backstage" class="w-full rounded mb-2">
+          <h2 class="text-xl font-semibold">Backstage</h2>
+          <p class="text-sm mb-2">0.1 ETH</p>
+          <button onclick="buyTicket(3, 0.1)"
+            class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const contractAddress = "0xEC94D6F1d0557BB0Ba490D3A11e72A76b3233f76";
+    const abi = [
+      {
+        "inputs": [
+          { "internalType": "uint256", "name": "id", "type": "uint256" },
+          { "internalType": "uint256", "name": "amount", "type": "uint256" }
+        ],
+        "name": "mint",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      }
+    ];
+
+    async function buyTicket(ticketType, amountEth) {
+      if (!window.ethereum) {
+        alert("Por favor instala MetaMask.");
+        return;
+      }
+
+      try {
+        await ethereum.request({ method: 'eth_requestAccounts' });
+
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(contractAddress, abi, signer);
+
+        const tx = await contract.mint(ticketType, 1, {
+          value: ethers.utils.parseEther(amountEth.toString())
+        });
+
+        alert("Transacción enviada: " + tx.hash);
+        await tx.wait();
+        alert("Entrada adquirida con éxito.");
+      } catch (err) {
+        console.error(err);
+        alert("Error: " + (err.message || err));
+      }
+    }
+  </script>
+  <footer class="text-center text-gray-400 text-sm mt-8">
+    Hecho por Claudia Ortiz, Paula de la Hoz, Guillermo Pérez Pérez y Gonzalo Torras en la UFV.
+  </footer>
+</body>
+
+</html>

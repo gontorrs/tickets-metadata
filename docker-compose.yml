@@ -1,0 +1,11 @@
+services:
+  tickets-web:
+    build:
+      context: ./frontend
+      dockerfile: ./docker/Dockerfile
+    container_name: tickets-interface
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend/public:/usr/share/nginx/html
+    restart: unless-stopped
