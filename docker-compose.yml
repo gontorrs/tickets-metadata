@@ -2,7 +2,7 @@ services:
   tickets-web:
     build:
       context: ./frontend
-      dockerfile: ./docker/Dockerfile
+      dockerfile: ./Dockerfile
     container_name: tickets-interface
     ports:
       - "8080:80"
