@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for tickets-metadata-rbpyqw on 2025-05-17T16:45:06Z
+# fly.toml app configuration file generated for tickets-metadata on 2025-05-17T16:50:37Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'tickets-metadata-rbpyqw'
+app = 'tickets-metadata'
 primary_region = 'cdg'
 
 [build]
