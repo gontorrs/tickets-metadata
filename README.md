@@ -9,7 +9,7 @@ Este proyecto es una plataforma completa para la venta de entradas en formato NF
 Todo preparado para trabajar con **MetaMask**, contratos inteligentes en Solidity, y desplegarlo con un solo comando.
 
 ---
-## 🚀 ¿Qué incluye?
+## ¿Qué incluye?
 
 - Interfaz para comprar NFTs conectada con **MetaMask**.
 - Smart contract desplegado en Sepolia.
@@ -19,7 +19,7 @@ Todo preparado para trabajar con **MetaMask**, contratos inteligentes en Solidit
 
 ---
 
-## 🎫 Tipos de entradas
+## Tipos de entradas
 
 | Tipo de entrada | ID del token | Precio (ETH) | Imagen             |
 |-----------------|--------------|---------------|--------------------|
@@ -30,7 +30,7 @@ Todo preparado para trabajar con **MetaMask**, contratos inteligentes en Solidit
 
 ---
 
-## 🔧 Requisitos previos
+## Requisitos previos
 
 - Docker + Docker Compose
 - Navegador con MetaMask instalado
@@ -38,7 +38,7 @@ Todo preparado para trabajar con **MetaMask**, contratos inteligentes en Solidit
 
 ---
 
-## ⚙️ Cómo desplegar el proyecto
+## Cómo desplegar el proyecto
 
 Desde la raíz del proyecto:
 
@@ -47,11 +47,11 @@ docker compose up --build
 ```
 Accede desde el navegador a:
 
-👉 [http://localhost:8080](http://localhost:8080)
+[http://localhost:8080](http://localhost:8080)
 
 ---
 
-🔗 Contrato en Sepolia
+Contrato en Sepolia
 ----------------------
 
 * Dirección: `0xEC94D6F1d0557BB0Ba490D3A11e72A76b3233f76`  
@@ -59,7 +59,7 @@ Accede desde el navegador a:
 
 ---
 
-👥 Autores
+Autores
 ----------
 
 Este proyecto ha sido desarrollado por:
@@ -69,4 +69,4 @@ Este proyecto ha sido desarrollado por:
 * **Guillermo Pérez Pérez**
 * **Gonzalo Torras**
 
-En la UFV.
+En la UFV (Universidad Francisco de Vitoria).
